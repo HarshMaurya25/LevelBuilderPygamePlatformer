@@ -31,6 +31,4 @@ class background:
             screen.blit(self.Foreground,(i*self.s_width-scroll ,0))
             screen.blit(self.Ground,(i*self.s_width-scroll,0))
     
-# def draw(screen):
-#     sky = pygame.image.load('Assest/Layers/Sky.png')
-#     pygame.transform.scale(sky,(90, 540))
+
