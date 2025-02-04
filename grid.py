@@ -1,7 +1,9 @@
 import pygame
 
+# Makw=e the grid of the screen
+
 white = (255 , 255 ,255)
-class grid:
+class Grid:
     def __init__(self, screen , tilesize):
 
 

@@ -1,5 +1,7 @@
 import pygame
 
+# Load and draw the background
+
 black = (0,0,0)
 
 class background:
