@@ -1,11 +1,14 @@
 import pygame
 from background import background
+from block import Block
+from grid import grid
 
 pygame.init()
 
 # Basic initialization of screen
-s_width , s_height = 1152,648
+s_width , s_height = 1150,650
 extra_margin = 200
+tilesize = 50
 
 # Clock initiatization
 FPS = 60
@@ -14,7 +17,7 @@ clock = pygame.time.Clock()
 #Parallax term for screen
 scroll_right = False
 scroll_left = False
-scroll = 300
+scroll = 0
 scroll_speed = 1
 
 # Color
@@ -29,13 +32,16 @@ back = background()
 # Loop initialization
 RUN = True
 while RUN:
- 
+
     # Background represent
     back.draw(screen, scroll)
+    grid(screen, tilesize)
+    
+    
         
     # Parallax calculation
-    if scroll_right == True :
-        scroll += 5 * scroll_speed
+    if scroll_right == True and scroll < tilesize * 92 :
+        scroll += 50 * scroll_speed
     if scroll_left  == True and scroll > 0:
         scroll -= 5 *scroll_speed
 
