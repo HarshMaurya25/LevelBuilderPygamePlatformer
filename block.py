@@ -17,6 +17,11 @@ class Block:
         self.place_y = 21
         self.pos_= -1
         self.world_data = []
+        self.world_seed =[]
+
+        for row in range(12):
+            row = [-1] * 117
+            self.world_seed.append(row)
 
         
         for row in range(12):
@@ -24,7 +29,7 @@ class Block:
             self.world_data.append(row)
 
         for t in range(117):
-            self.world_data[11][t] = 0
+            self.world_data[1][t] = 0
 
         for i in range(1,9):
             # Loading image in list
@@ -94,7 +99,9 @@ class Block:
             if pygame.mouse.get_pressed()[0]== 1:
                 if self.world_data[y][x] != self.pos_:
                     self.world_data[y][x] = self.pos_
+                    self.world_seed = self.world_data[y][x]
                     
+
             if pygame.mouse.get_pressed()[1]== 1:
                 if self.world_data[y][x] != -1:
                     self.world_data[y][x] = -1
@@ -113,3 +120,7 @@ class Block:
     def load(self, world):
         self.world_data = world
 
+    def give(self):
+        for x , row in enumerate (self.world_data):
+                for y , tile in enumerate(row):
+                        self.world_seed[x][y]= self.world_data[x][y]
