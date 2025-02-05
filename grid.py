@@ -4,13 +4,14 @@ import pygame
 
 white = (255 , 255 ,255)
 class Grid:
-    def __init__(self, screen , tilesize):
+    def __init__(self, screen , tilesize,scroll, grid):
 
 
-        self.horizontal = 13
-        self.vertical = 92
+        self.horizontal = screen.get_width()
+        self.vertical = screen.get_height()
 
-        for i in range (1, self.horizontal):
-            pygame.draw.line(screen , white , (0, i * tilesize), ( 1152, i * tilesize))
-        for i in range (1, self.vertical):
-            pygame.draw.line(screen , white , ( i * tilesize, 0), ( i * tilesize, 648))
+        if grid:
+            for i in range (1, self.horizontal):
+                pygame.draw.line(screen , white , (0, i * tilesize), (self.horizontal, i * tilesize))
+            for i in range (1, self.vertical):
+                pygame.draw.line(screen , white , ( i * tilesize-scroll, 0), ( i * tilesize-scroll, self.vertical))

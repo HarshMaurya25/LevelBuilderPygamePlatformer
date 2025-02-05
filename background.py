@@ -6,7 +6,7 @@ black = (0,0,0)
 
 class background:
     def __init__(self):
-        self.s_width , self.s_height = 1150, 650
+        self.s_width , self.s_height = 1152,648
         
         self.sky = pygame.image.load('Assest/Layers/Sky.png').convert_alpha()
         self.sky =pygame.transform.scale(self.sky,(self.s_width, self.s_height))
