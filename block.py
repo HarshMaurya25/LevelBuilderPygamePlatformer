@@ -30,7 +30,7 @@ class Block:
             self.world_data.append(row)
 
         for t in range(117):
-            self.world_data[1][t] = 0
+            self.world_data[11][t] = 0
 
         for i in range(1,9):
             # Loading image in list
