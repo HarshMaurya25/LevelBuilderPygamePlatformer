@@ -1,4 +1,5 @@
 import pygame
+import csv
 
 
 # Load and display the tile texture
@@ -91,6 +92,7 @@ class Block:
     
     def updateworld(self,screen_width , screen_height ,scroll, tilesize):
         pos = pygame.mouse.get_pos()
+    
         
         x = (pos[0] + scroll) // tilesize
         y = pos[1] // tilesize
@@ -118,9 +120,20 @@ class Block:
                 self.world_data[i][j] = -1
 
     def load(self, world):
+        print("cakll")
         self.world_data = world
 
     def give(self):
         for x , row in enumerate (self.world_data):
                 for y , tile in enumerate(row):
                         self.world_seed[x][y]= self.world_data[x][y]
+
+    def load(self,level):
+        block = Block(54)
+        with open(f'Assest/level/{level}.csv', newline='') as f:
+            reader = csv.reader(f , delimiter=',')
+            for x ,row in enumerate (reader):
+                for y , tile in enumerate(row):
+                    self.world_data[x][y] = int(tile)
+        
+        

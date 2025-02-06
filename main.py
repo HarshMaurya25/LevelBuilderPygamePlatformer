@@ -3,7 +3,7 @@ from background import background
 from block import Block
 from grid import Grid
 from save import Save
-from load import Load
+
 
 pygame.init()
 
@@ -23,6 +23,7 @@ scroll_right = False
 scroll_left = False
 scroll = 0
 scroll_speed = 1
+stop = 1
 
 # Color
 Green = (100,255,100)
@@ -65,6 +66,8 @@ while RUN:
     if scroll_left  == True and scroll > 0:
         scroll -= 5 *scroll_speed
 
+    if stop % 2 == 0:
+       grid= False
 
     # Event handling of key
     for event in pygame.event.get():
@@ -87,9 +90,9 @@ while RUN:
             if event.key == pygame.K_RSHIFT:
                 Save(level)
             if event.key == pygame.K_TAB:
-                Load(level)
+                block.load(level)
             if event.key == pygame.K_SPACE:
-                grid= False
+                stop +=1
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_d:
