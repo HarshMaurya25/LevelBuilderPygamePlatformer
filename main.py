@@ -62,7 +62,7 @@ while RUN:
 
     # Parallax calculation
     if scroll_right == True and scroll < tilesize * 85:
-        scroll += 50 * scroll_speed
+        scroll += 5 * scroll_speed
     if scroll_left  == True and scroll > 0:
         scroll -= 5 *scroll_speed
 
