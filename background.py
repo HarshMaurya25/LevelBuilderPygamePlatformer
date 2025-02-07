@@ -8,9 +8,10 @@ class background:
     def __init__(self):
         self.s_width , self.s_height = 1152,648
         self.bg = []
+        self.scroll_speed = [ 0.15 , 0.02 , 0.155 , 0.3 , 0.4]
 
-        for i in range(0,5):
-            self.i = pygame.image.load(f'Assest/Layers/{i}.png').convert_alpha()
+        for i in range(1,6):
+            self.i = pygame.image.load(f'Assest/Layers1/{i}.png').convert_alpha()
             self.i =pygame.transform.scale(self.i,(self.s_width, self.s_height))
             self.bg.append(self.i)
 
@@ -31,10 +32,10 @@ class background:
 
     def draw(self,screen,scroll):
         screen.fill(black)
-        for j in range(0,5):
+        for j in range(0,len(self.bg)):
             for i in range(0,5):
                 if i <= 3:
-                    screen.blit(self.bg[j],(i*self.s_width-scroll*0.5,0))
+                    screen.blit(self.bg[j],(i*self.s_width-scroll*self.scroll_speed[j],0))
 
             #     screen.blit(self.BG,(i*self.s_width-scroll * 0.65,0))
             # screen.blit(self.Middle,(i*self.s_width-scroll*0.8,0))
