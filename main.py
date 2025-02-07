@@ -46,7 +46,7 @@ while RUN:
     back.draw(screen, scroll)
 
     block.updateworld(s_width,s_height,scroll,tilesize)
-
+ 
     block.draw_world(screen,tilesize,scroll)
 
     # Draw the Grid

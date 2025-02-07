@@ -129,11 +129,14 @@ class Block:
                         self.world_seed[x][y]= self.world_data[x][y]
 
     def load(self,level):
-        block = Block(54)
-        with open(f'Assest/level/{level}.csv', newline='') as f:
-            reader = csv.reader(f , delimiter=',')
-            for x ,row in enumerate (reader):
-                for y , tile in enumerate(row):
-                    self.world_data[x][y] = int(tile)
+        try:
+            block = Block(54)
+            with open(f'Assest/level/{level}.csv', newline='') as f:
+                reader = csv.reader(f , delimiter=',')
+                for x ,row in enumerate (reader):
+                    for y , tile in enumerate(row):
+                        self.world_data[x][y] = int(tile)
+        except:
+            print("No level found")
         
         
